@@ -128,7 +128,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "Add_Party";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add_Party";
+            this.Load += new System.EventHandler(this.Add_Party_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

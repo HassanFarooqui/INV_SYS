@@ -65,8 +65,50 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ConnectionStringClass.cs" />
+    <Compile Include="Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production.Designer.cs">
+      <DependentUpon>Production.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Purchase_Entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase_Entry.Designer.cs">
+      <DependentUpon>Purchase_Entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase_Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase_Search.Designer.cs">
+      <DependentUpon>Purchase_Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sale Entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sale Entry.Designer.cs">
+      <DependentUpon>Sale Entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sale_Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sale_Search.Designer.cs">
+      <DependentUpon>Sale_Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Statement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statement.Designer.cs">
+      <DependentUpon>Statement.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Add_Party.resx">
       <DependentUpon>Add_Party.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +127,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Sale Entry.resx">
+      <DependentUpon>Sale Entry.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

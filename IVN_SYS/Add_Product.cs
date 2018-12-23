@@ -37,8 +37,11 @@ namespace IVN_SYS
                 {
                     sqlC.Open();
                     var a = mycommand.ExecuteNonQuery();
-                    //  Response.Write(a);
                     sqlC.Close();
+
+                    Tbx_ProductName.Text = "";
+                    id = Convert.ToString(this.GetID());
+                    MessageBox.Show("Product Saved");
 
                 }
                 catch (Exception ex)

@@ -15,7 +15,8 @@ namespace IVN_SYS
     public partial class Sale_Entry : Form
     {
         string id;
-        List<string> productnameArray = new List<string>();
+        //List<string> productnameArray = new List<string>();
+        string[] productnameArray;
 
         public Sale_Entry()
         {
@@ -77,14 +78,19 @@ namespace IVN_SYS
                 myCon.Open();
                SqlDataReader productName = myCmd1.ExecuteReader();
 
+                List<string> productnameList = new List<string>();
+
 
                 while (productName.Read())
                 {
                     string str2 = productName.GetValue(0).ToString().Trim();
-                    productnameArray.Add(str2);
+                    productnameList.Add(str2);
+
 
                 }
+                productnameArray = productnameList.ToArray();
                 myCon.Close();
+
 
             }
             catch (Exception ex)
@@ -92,18 +98,37 @@ namespace IVN_SYS
 
                 MessageBox.Show("String array not working");
             }
+            fillComboboxOfGridView(0, 1);
+
 
         }
 
+
+        public void fillComboboxOfGridView(int row, int column)
+        {
+            var abc =  this.GdvSaleEntry.Rows.Count;
+            DataGridViewComboBoxCell comboBox = new DataGridViewComboBoxCell();
+            comboBox.Items.AddRange(productnameArray);
+            this.GdvSaleEntry.Rows[row].Cells[column] = comboBox;
+            this.GdvSaleEntry.Rows[row].Cells[column].Value = productnameArray[0]; 
+        }
         private void GdvSaleEntry_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("GdvSaleEntry_CellClick");
+            //int row = e.RowIndex - 1;
+
+            DataGridView grd = (DataGridView) sender;
+            int row = grd.Rows.Count;
+            if (row > 1)
+            {
+                fillComboboxOfGridView(row - 1, 1);
+            }
+            
 
         }
 
         private void GdvSaleEntry_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            MessageBox.Show("GdvSaleEntry_CellMouseClick");
+           // MessageBox.Show("GdvSaleEntry_CellMouseClick");
         }
     }
 }

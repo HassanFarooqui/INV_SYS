@@ -140,6 +140,7 @@
             this.rate,
             this.amount});
             this.GdvSaleEntry.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.GdvSaleEntry.GridColor = System.Drawing.SystemColors.Control;
             this.GdvSaleEntry.Location = new System.Drawing.Point(1, 87);
             this.GdvSaleEntry.Margin = new System.Windows.Forms.Padding(2);
             this.GdvSaleEntry.MultiSelect = false;
@@ -147,7 +148,7 @@
             this.GdvSaleEntry.RowHeadersVisible = false;
             this.GdvSaleEntry.RowTemplate.DividerHeight = 6;
             this.GdvSaleEntry.RowTemplate.Height = 24;
-            this.GdvSaleEntry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.GdvSaleEntry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GdvSaleEntry.Size = new System.Drawing.Size(835, 224);
             this.GdvSaleEntry.TabIndex = 35;
             this.GdvSaleEntry.TabStop = false;

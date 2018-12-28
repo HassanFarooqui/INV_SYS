@@ -42,11 +42,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.CbxPartyName = new System.Windows.Forms.ComboBox();
             this.GdvSaleEntry = new System.Windows.Forms.DataGridView();
-            this.Itemcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Itemdesc = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.kgs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.TbxTotal = new System.Windows.Forms.TextBox();
             this.TbxDiscount = new System.Windows.Forms.TextBox();
@@ -57,6 +52,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.BtnSave = new System.Windows.Forms.Button();
+            this.Itemcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Itemdesc = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.kgs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GdvSaleEntry)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,66 +155,6 @@
             this.GdvSaleEntry.TabStop = false;
             this.GdvSaleEntry.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GdvSaleEntry_CellClick);
             // 
-            // Itemcode
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.Itemcode.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Itemcode.DividerWidth = 1;
-            this.Itemcode.HeaderText = "Code";
-            this.Itemcode.Name = "Itemcode";
-            this.Itemcode.Width = 58;
-            // 
-            // Itemdesc
-            // 
-            this.Itemdesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.Itemdesc.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Itemdesc.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Itemdesc.DividerWidth = 1;
-            this.Itemdesc.HeaderText = "Item Name";
-            this.Itemdesc.Name = "Itemdesc";
-            // 
-            // kgs
-            // 
-            this.kgs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Format = "N5";
-            dataGridViewCellStyle4.NullValue = "0";
-            this.kgs.DefaultCellStyle = dataGridViewCellStyle4;
-            this.kgs.DividerWidth = 1;
-            this.kgs.HeaderText = "Kgs/Qty";
-            this.kgs.Name = "kgs";
-            this.kgs.Width = 72;
-            // 
-            // rate
-            // 
-            this.rate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Format = "N5";
-            dataGridViewCellStyle5.NullValue = "0";
-            this.rate.DefaultCellStyle = dataGridViewCellStyle5;
-            this.rate.DividerWidth = 1;
-            this.rate.HeaderText = "Rate";
-            this.rate.Name = "rate";
-            this.rate.Width = 56;
-            // 
-            // amount
-            // 
-            this.amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Format = "N6";
-            dataGridViewCellStyle6.NullValue = "0";
-            this.amount.DefaultCellStyle = dataGridViewCellStyle6;
-            this.amount.DividerWidth = 1;
-            this.amount.HeaderText = "Amount";
-            this.amount.Name = "amount";
-            this.amount.Width = 69;
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -296,6 +236,67 @@
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = true;
             // 
+            // Itemcode
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.Itemcode.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Itemcode.DividerWidth = 1;
+            this.Itemcode.HeaderText = "Code";
+            this.Itemcode.Name = "Itemcode";
+            this.Itemcode.ReadOnly = true;
+            this.Itemcode.Width = 58;
+            // 
+            // Itemdesc
+            // 
+            this.Itemdesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.Itemdesc.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Itemdesc.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Itemdesc.DividerWidth = 1;
+            this.Itemdesc.HeaderText = "Item Name";
+            this.Itemdesc.Name = "Itemdesc";
+            // 
+            // kgs
+            // 
+            this.kgs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Format = "N5";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.kgs.DefaultCellStyle = dataGridViewCellStyle4;
+            this.kgs.DividerWidth = 1;
+            this.kgs.HeaderText = "Kgs/Qty";
+            this.kgs.Name = "kgs";
+            this.kgs.Width = 72;
+            // 
+            // rate
+            // 
+            this.rate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Format = "N5";
+            dataGridViewCellStyle5.NullValue = "0";
+            this.rate.DefaultCellStyle = dataGridViewCellStyle5;
+            this.rate.DividerWidth = 1;
+            this.rate.HeaderText = "Rate";
+            this.rate.Name = "rate";
+            this.rate.Width = 56;
+            // 
+            // amount
+            // 
+            this.amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Format = "N6";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.amount.DefaultCellStyle = dataGridViewCellStyle6;
+            this.amount.DividerWidth = 1;
+            this.amount.HeaderText = "Amount";
+            this.amount.Name = "amount";
+            this.amount.Width = 69;
+            // 
             // Sale_Entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,11 +340,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox CbxPartyName;
         private System.Windows.Forms.DataGridView GdvSaleEntry;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kgs;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Itemdesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Itemcode;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox TbxTotal;
         private System.Windows.Forms.TextBox TbxDiscount;
@@ -354,5 +350,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button BtnSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kgs;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Itemdesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Itemcode;
     }
 }

@@ -25,9 +25,13 @@ namespace IVN_SYS
 
         #region // For getting new line and next cell on press enter key
         int rowselect = 0;
+       
         protected override bool ProcessCmdKey(ref System.Windows.Forms.Message msg, System.Windows.Forms.Keys keyData)
             {
             int icolumn, irow = 0;
+          // string a = GdvSaleEntry.RowCount.ToString();
+            
+           // GdvSaleEntry.Rows[0].Cells[0].Value = a;
             if (keyData == Keys.Enter)
             {
                 try
@@ -188,6 +192,13 @@ namespace IVN_SYS
             comboBox.Items.AddRange(productnameArray);
             this.GdvSaleEntry.Rows[row].Cells[column] = comboBox;
             this.GdvSaleEntry.Rows[row].Cells[column].Value = productnameArray[0];
+            int b = GdvSaleEntry.Rows.Count;
+            if (b == 1)
+            {
+                GdvSaleEntry.Rows[0].Cells[0].Value = b;
+            }
+           
+           
         }
         private void GdvSaleEntry_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -197,6 +208,7 @@ namespace IVN_SYS
             int row = grd.Rows.Count;
             if (row > 1)
             {
+                this.GdvSaleEntry.Rows[row-1].Cells[0].Value = row;
                 fillComboboxOfGridView(row - 1, 1);
             }
         }

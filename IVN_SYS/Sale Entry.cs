@@ -22,6 +22,94 @@ namespace IVN_SYS
         {
             InitializeComponent();
         }
+
+        #region // For getting new line and next cell on press enter key
+        int rowselect = 0;
+        protected override bool ProcessCmdKey(ref System.Windows.Forms.Message msg, System.Windows.Forms.Keys keyData)
+            {
+            int icolumn, irow = 0;
+            if (keyData == Keys.Enter)
+            {
+                try
+                {
+                    if (GdvSaleEntry.CurrentCell.IsInEditMode || (this.GdvSaleEntry.Focused))
+                    {
+                        icolumn = GdvSaleEntry.CurrentCell.ColumnIndex;
+                        irow = GdvSaleEntry.CurrentCell.RowIndex;
+                        rowselect = irow;
+                        if (icolumn == GdvSaleEntry.Columns.Count - 1)
+                        {
+                            if (GdvSaleEntry.Rows.Count > 1)
+                            {
+                                var qnty = GdvSaleEntry.Rows[irow].Cells[4].Value;
+                                if (qnty != null)
+                                {
+                                    GdvSaleEntry.Rows.Add();
+                                    GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
+                                }
+                                else
+                                    return true;
+                            }
+                            else
+                            {
+                                if (GdvSaleEntry.CurrentCell.RowIndex == GdvSaleEntry.Rows.Count - 1)
+                                {
+                                    GdvSaleEntry.Rows.Add();
+                                }
+                                else
+                                {
+                                    GdvSaleEntry.EndEdit();
+                                }
+                                GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
+                            }
+                        }
+                        else
+                        {
+                            if (GdvSaleEntry.CurrentCell.ColumnIndex == 3)
+                            {
+                                if (GdvSaleEntry.CurrentCell.RowIndex == GdvSaleEntry.Rows.Count - 1)
+                                {
+                                    Int32 index = GdvSaleEntry.Rows.Count - 1; // this is count start 1,2,3,4,5,6
+                                    GdvSaleEntry.EndEdit();
+                                    var value = GdvSaleEntry.Rows[index].Cells[3].Value.ToString();
+
+                                    if (value != null)
+                                    {
+                                        GdvSaleEntry.Rows.Add();
+                                        GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
+                                    }
+                                    else
+                                    {
+                                        GdvSaleEntry.EndEdit();
+                                        GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
+                                    }
+                                }
+                                else
+                                {
+                                    GdvSaleEntry.EndEdit();
+                                    GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
+                                }
+                            }
+                            else
+                            {
+                                GdvSaleEntry.CurrentCell = GdvSaleEntry[icolumn + 1, irow];
+                            }
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                }
+                rowselect = GdvSaleEntry.CurrentCell.RowIndex;
+                return true;
+            }
+            else
+                return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        #endregion // For getting new line and next cell on press enter key
+
         private int GetID()
         {
             int party = 0;
@@ -50,14 +138,12 @@ namespace IVN_SYS
             TbxSno.Text = id;
             ConnectionStringClass conString = new ConnectionStringClass();
             SqlConnection myCon = conString.getDatabaseConnection();
-
             string query = "select party_name from tbl_AddParty";
             SqlCommand myCmd = new SqlCommand(query, myCon);
             try
             {
                 myCon.Open();
                 SqlDataReader PartyName = myCmd.ExecuteReader();
-              
                 while (PartyName.Read())
                 {
                     string str = PartyName.GetValue(0).ToString().Trim();
@@ -67,7 +153,6 @@ namespace IVN_SYS
             }
             catch (Exception)
             {
-
                 throw;
             }
 
@@ -76,59 +161,44 @@ namespace IVN_SYS
             try
             {
                 myCon.Open();
-               SqlDataReader productName = myCmd1.ExecuteReader();
-
+                SqlDataReader productName = myCmd1.ExecuteReader();
                 List<string> productnameList = new List<string>();
-
-
                 while (productName.Read())
                 {
                     string str2 = productName.GetValue(0).ToString().Trim();
                     productnameList.Add(str2);
-
-
                 }
                 productnameArray = productnameList.ToArray();
                 myCon.Close();
-
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("String array not working");
             }
+            GdvSaleEntry.Rows.Clear();
+            GdvSaleEntry.Rows.Add();
             fillComboboxOfGridView(0, 1);
-
-
         }
 
 
         public void fillComboboxOfGridView(int row, int column)
         {
-            var abc =  this.GdvSaleEntry.Rows.Count;
+            var abc = this.GdvSaleEntry.Rows.Count;
             DataGridViewComboBoxCell comboBox = new DataGridViewComboBoxCell();
             comboBox.Items.AddRange(productnameArray);
             this.GdvSaleEntry.Rows[row].Cells[column] = comboBox;
-            this.GdvSaleEntry.Rows[row].Cells[column].Value = productnameArray[0]; 
+            this.GdvSaleEntry.Rows[row].Cells[column].Value = productnameArray[0];
         }
         private void GdvSaleEntry_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //int row = e.RowIndex - 1;
-
-            DataGridView grd = (DataGridView) sender;
+            rowselect = e.RowIndex;
+            DataGridView grd = (DataGridView)sender;
             int row = grd.Rows.Count;
             if (row > 1)
             {
                 fillComboboxOfGridView(row - 1, 1);
             }
-            
-
-        }
-
-        private void GdvSaleEntry_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-           // MessageBox.Show("GdvSaleEntry_CellMouseClick");
         }
     }
 }

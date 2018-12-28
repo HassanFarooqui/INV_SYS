@@ -121,6 +121,7 @@
             // 
             // GdvSaleEntry
             // 
+            this.GdvSaleEntry.AllowUserToAddRows = false;
             this.GdvSaleEntry.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.GdvSaleEntry.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GdvSaleEntry.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
@@ -148,12 +149,11 @@
             this.GdvSaleEntry.RowHeadersVisible = false;
             this.GdvSaleEntry.RowTemplate.DividerHeight = 6;
             this.GdvSaleEntry.RowTemplate.Height = 24;
-            this.GdvSaleEntry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GdvSaleEntry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.GdvSaleEntry.Size = new System.Drawing.Size(835, 224);
             this.GdvSaleEntry.TabIndex = 35;
             this.GdvSaleEntry.TabStop = false;
             this.GdvSaleEntry.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GdvSaleEntry_CellClick);
-            this.GdvSaleEntry.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GdvSaleEntry_CellMouseClick);
             // 
             // Itemcode
             // 

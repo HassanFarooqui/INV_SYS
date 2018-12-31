@@ -23,6 +23,7 @@ namespace IVN_SYS
         double expense;
         double grandtotal;
         double b = 0;
+        
 
         public Sale_Entry()
         {
@@ -251,14 +252,20 @@ namespace IVN_SYS
                     {
                         if (double.TryParse(valueA, out result) && double.TryParse(valueB, out result))
                         {
-                            row.Cells[4].Value = Math.Ceiling(Convert.ToDouble(valueA) * Convert.ToDouble(valueB));       
-                            if (b == 0)
-                            { 
-                                b = Math.Ceiling(Convert.ToDouble(valueA) * Convert.ToDouble(valueB));
-                                // total = total + b;
-                                 TbxTotal.Text = (Convert.ToInt16(TbxTotal.Text) + b).ToString();
+                            row.Cells[4].Value = Math.Ceiling(Convert.ToDouble(valueA) * Convert.ToDouble(valueB));
+
+
+                            //string var =  row.Cells[4].Value.ToString();
+                            if (GdvSaleEntry.Rows.Count != 1)
+                            {
+                                if (b == 0)
+                                {
+                                    b = Math.Ceiling(Convert.ToDouble(valueA) * Convert.ToDouble(valueB));
+                                    total = total + b;
+                                    TbxTotal.Text = total.ToString();
+
+                                }
                             }
-                            
                         }
                     }
                     else

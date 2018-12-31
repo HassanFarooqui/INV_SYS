@@ -256,5 +256,10 @@ namespace IVN_SYS
                // MessageBox.Show("Insert Correct amount" + ex.Message);
             }
         }
+
+        private void Calculator(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("Calc");
+        }
     }
 }

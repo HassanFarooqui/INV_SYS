@@ -18,6 +18,12 @@ namespace IVN_SYS
         //List<string> productnameArray = new List<string>();
         string[] productnameArray;
 
+        double total;
+        double discount;
+        double expense;
+        double grandtotal;
+        double b = 0;
+
         public Sale_Entry()
         {
             InitializeComponent();
@@ -34,6 +40,7 @@ namespace IVN_SYS
             // GdvSaleEntry.Rows[0].Cells[0].Value = a;
             if (keyData == Keys.Enter)
             {
+                b = 0;
                 try
                 {
                     if (GdvSaleEntry.CurrentCell.IsInEditMode || (this.GdvSaleEntry.Focused))
@@ -51,6 +58,7 @@ namespace IVN_SYS
                                 //if (qnty != null)
                                 //{
                                 GdvSaleEntry.Rows.Add();
+                                //b = 0;//for add value in total
                                 this.GdvSaleEntry.Rows[R].Cells[0].Value = R+ 1;
                                 fillComboboxOfGridView(R, 1);
                                 GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
@@ -66,6 +74,7 @@ namespace IVN_SYS
                                 if (GdvSaleEntry.CurrentCell.RowIndex == GdvSaleEntry.Rows.Count - 1)
                                 {
                                     GdvSaleEntry.Rows.Add();
+                                    //b = 0;//for add value in total
                                     this.GdvSaleEntry.Rows[R].Cells[0].Value = R+1;
                                     fillComboboxOfGridView(R , 1);
                                 }
@@ -89,6 +98,7 @@ namespace IVN_SYS
                                     if (value != null)
                                     {
                                         GdvSaleEntry.Rows.Add();
+                                       // b = 0;//for add value in total
                                         this.GdvSaleEntry.Rows[R ].Cells[0].Value = R;
                                         fillComboboxOfGridView(R , 1);
                                         GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
@@ -150,6 +160,7 @@ namespace IVN_SYS
         }
         private void Sale_Entry_Load(object sender, EventArgs e)
         {
+            TbxTotal.Text = "0";
             id = Convert.ToString(this.GetID());
             TbxSno.Text = id;
             ConnectionStringClass conString = new ConnectionStringClass();
@@ -224,9 +235,9 @@ namespace IVN_SYS
             //    fillComboboxOfGridView(row - 1, 1);
             //}
         }
-
+        
         private void GdvSaleEntry_CellValidated(object sender, DataGridViewCellEventArgs e)
-        {
+            {
             DataGridViewRow row = new DataGridViewRow();
             try
             {
@@ -240,7 +251,14 @@ namespace IVN_SYS
                     {
                         if (double.TryParse(valueA, out result) && double.TryParse(valueB, out result))
                         {
-                            row.Cells[4].Value = Math.Ceiling(Convert.ToDouble(valueA) * Convert.ToDouble(valueB));
+                            row.Cells[4].Value = Math.Ceiling(Convert.ToDouble(valueA) * Convert.ToDouble(valueB));       
+                            if (b == 0)
+                            { 
+                                b = Math.Ceiling(Convert.ToDouble(valueA) * Convert.ToDouble(valueB));
+                                // total = total + b;
+                                 TbxTotal.Text = (Convert.ToInt16(TbxTotal.Text) + b).ToString();
+                            }
+                            
                         }
                     }
                     else

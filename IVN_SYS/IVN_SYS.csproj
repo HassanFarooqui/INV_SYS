@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>IVN_SYS.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -103,6 +106,12 @@
     <Compile Include="Sale_Search.Designer.cs">
       <DependentUpon>Sale_Search.cs</DependentUpon>
     </Compile>
+    <Compile Include="SignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignIn.Designer.cs">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Statement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sale Entry.resx">
       <DependentUpon>Sale Entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignIn.resx">
+      <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

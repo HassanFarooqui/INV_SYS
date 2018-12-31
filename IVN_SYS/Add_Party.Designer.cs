@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,8 +45,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.GdvProducts = new System.Windows.Forms.DataGridView();
+            this.Party_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GdvProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -172,10 +182,86 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.GdvProducts);
             this.panel3.Location = new System.Drawing.Point(12, 212);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(522, 196);
+            this.panel3.Size = new System.Drawing.Size(522, 187);
             this.panel3.TabIndex = 13;
+            // 
+            // GdvProducts
+            // 
+            this.GdvProducts.AllowUserToAddRows = false;
+            this.GdvProducts.AllowUserToDeleteRows = false;
+            this.GdvProducts.AllowUserToResizeColumns = false;
+            this.GdvProducts.AllowUserToResizeRows = false;
+            this.GdvProducts.BackgroundColor = System.Drawing.Color.White;
+            this.GdvProducts.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GdvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.GdvProducts.ColumnHeadersHeight = 30;
+            this.GdvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Party_Id,
+            this.name,
+            this.Phone_No});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(221)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GdvProducts.DefaultCellStyle = dataGridViewCellStyle3;
+            this.GdvProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GdvProducts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.GdvProducts.Location = new System.Drawing.Point(0, 0);
+            this.GdvProducts.MultiSelect = false;
+            this.GdvProducts.Name = "GdvProducts";
+            this.GdvProducts.ReadOnly = true;
+            this.GdvProducts.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.GdvProducts.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.GdvProducts.RowTemplate.DividerHeight = 10;
+            this.GdvProducts.RowTemplate.Height = 30;
+            this.GdvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GdvProducts.ShowEditingIcon = false;
+            this.GdvProducts.Size = new System.Drawing.Size(522, 187);
+            this.GdvProducts.TabIndex = 9;
+            // 
+            // Party_Id
+            // 
+            this.Party_Id.HeaderText = "Party Id";
+            this.Party_Id.Name = "Party_Id";
+            this.Party_Id.ReadOnly = true;
+            this.Party_Id.Width = 148;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            this.name.DefaultCellStyle = dataGridViewCellStyle2;
+            this.name.HeaderText = "Party Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.name.Width = 210;
+            // 
+            // Phone_No
+            // 
+            this.Phone_No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Phone_No.HeaderText = "Phone No";
+            this.Phone_No.Name = "Phone_No";
+            this.Phone_No.ReadOnly = true;
+            this.Phone_No.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Phone_No.Width = 160;
             // 
             // Add_Party
             // 
@@ -193,6 +279,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GdvProducts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -211,5 +299,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridView GdvProducts;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Phone_No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Party_Id;
     }
 }

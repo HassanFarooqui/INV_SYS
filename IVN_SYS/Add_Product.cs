@@ -23,6 +23,8 @@ namespace IVN_SYS
         private void Add_Product_Load(object sender, EventArgs e)
         {
             id = Convert.ToString(this.GetID());
+
+            //Add values in Grid view
             ConnectionStringClass myCon = new ConnectionStringClass();
             SqlConnection sqlC = myCon.getDatabaseConnection();
             String selectQuery = "select * from tbl_AddProduct order by product_id asc";

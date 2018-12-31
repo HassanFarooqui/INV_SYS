@@ -22,6 +22,30 @@ namespace IVN_SYS
         private void Add_Party_Load(object sender, EventArgs e)
         {
             id = Convert.ToString(this.GetID());
+
+            //Add values in Grid view
+            ConnectionStringClass myCon = new ConnectionStringClass();
+            SqlConnection sqlC = myCon.getDatabaseConnection();
+            String selectQuery = "select * from tbl_AddParty order by party_id asc";
+            SqlCommand mycmd = new SqlCommand(selectQuery, sqlC);
+            try
+            {
+                sqlC.Open();
+                SqlDataReader DR = mycmd.ExecuteReader();
+                if (DR.HasRows)
+                {
+                    while (DR.Read())
+                    {
+                        GdvProducts.Rows.Add(DR[0].ToString(), DR[1].ToString(), DR[2].ToString());
+                    }
+                }
+                sqlC.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
         private int GetID()
         {

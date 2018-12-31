@@ -224,5 +224,37 @@ namespace IVN_SYS
             //    fillComboboxOfGridView(row - 1, 1);
             //}
         }
+
+        private void GdvSaleEntry_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            try
+            {
+                if (e.RowIndex > -1)
+                {
+                    row = GdvSaleEntry.Rows[e.RowIndex];
+                    string valueA = row.Cells[2].Value.ToString();
+                    string valueB = row.Cells[3].Value.ToString();
+                    double result;
+                    if (valueA != "" || valueB != "" || valueA != null || valueB != null)
+                    {
+                        if (double.TryParse(valueA, out result) && double.TryParse(valueB, out result))
+                        {
+                            row.Cells[4].Value = Math.Ceiling(Convert.ToDouble(valueA) * Convert.ToDouble(valueB));
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insert Correct value in rate and qty");
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+
+               // MessageBox.Show("Insert Correct amount" + ex.Message);
+            }
+        }
     }
 }

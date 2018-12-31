@@ -23,6 +23,28 @@ namespace IVN_SYS
         private void Add_Product_Load(object sender, EventArgs e)
         {
             id = Convert.ToString(this.GetID());
+            ConnectionStringClass myCon = new ConnectionStringClass();
+            SqlConnection sqlC = myCon.getDatabaseConnection();
+            String selectQuery = "select * from tbl_AddProduct order by product_id asc";
+            SqlCommand mycmd = new SqlCommand(selectQuery, sqlC);
+            try
+            {
+                sqlC.Open();
+                SqlDataReader DR = mycmd.ExecuteReader();
+                if (DR.HasRows)
+                {
+                    while (DR.Read())
+                    {
+                        GdvProducts.Rows.Add(DR[0].ToString(), DR[1].ToString());
+                    }
+                }
+                sqlC.Close();                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
         private void SaveProduct(object sender, EventArgs e)
         {

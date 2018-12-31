@@ -126,7 +126,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Purchase_Entry.resx">
+      <DependentUpon>Purchase_Entry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sale Entry.resx">
       <DependentUpon>Sale Entry.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav bar .jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -153,7 +153,7 @@
             this.GdvSaleEntry.Size = new System.Drawing.Size(835, 224);
             this.GdvSaleEntry.TabIndex = 35;
             this.GdvSaleEntry.TabStop = false;
-            this.GdvSaleEntry.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GdvSaleEntry_CellClick);
+            this.GdvSaleEntry.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.GdvSaleEntry_CellValidated);
             // 
             // dateTimePicker1
             // 
@@ -295,6 +295,7 @@
             this.amount.DividerWidth = 1;
             this.amount.HeaderText = "Amount";
             this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
             this.amount.Width = 69;
             // 
             // Sale_Entry

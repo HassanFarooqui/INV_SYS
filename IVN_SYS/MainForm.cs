@@ -70,5 +70,11 @@ namespace IVN_SYS
             Purchase_Search purchase_search = new Purchase_Search();
             purchase_search.ShowDialog();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Add_User add_user = new Add_User();
+            add_user.ShowDialog();
+        }
     }
 }

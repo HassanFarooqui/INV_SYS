@@ -224,18 +224,7 @@ namespace IVN_SYS
 
 
         }
-        private void GdvSaleEntry_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //int row = e.RowIndex - 1;
-            //rowselect = e.RowIndex;
-            //DataGridView grd = (DataGridView)sender;
-            //int row = grd.Rows.Count;
-            //if (row > 1)
-            //{
-            //    this.GdvSaleEntry.Rows[row - 1].Cells[0].Value = row;
-            //    fillComboboxOfGridView(row - 1, 1);
-            //}
-        }
+        
         
         private void GdvSaleEntry_CellValidated(object sender, DataGridViewCellEventArgs e)
             {

@@ -44,6 +44,7 @@ namespace IVN_SYS
             {
                 myCon.Open();
                 cmd.ExecuteNonQuery();
+                myCon.Close();
 
             }
             catch (Exception)

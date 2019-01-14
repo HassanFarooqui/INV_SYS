@@ -101,11 +101,11 @@
     <Compile Include="Purchase_Search.Designer.cs">
       <DependentUpon>Purchase_Search.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sale Entry.cs">
+    <Compile Include="Sale_Entry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sale Entry.Designer.cs">
-      <DependentUpon>Sale Entry.cs</DependentUpon>
+    <Compile Include="Sale_Entry.Designer.cs">
+      <DependentUpon>Sale_Entry.cs</DependentUpon>
     </Compile>
     <Compile Include="Sale_Search.cs">
       <SubType>Form</SubType>
@@ -150,8 +150,11 @@
     <EmbeddedResource Include="Purchase_Entry.resx">
       <DependentUpon>Purchase_Entry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sale Entry.resx">
-      <DependentUpon>Sale Entry.cs</DependentUpon>
+    <EmbeddedResource Include="Sale_Entry.resx">
+      <DependentUpon>Sale_Entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sale_Search.resx">
+      <DependentUpon>Sale_Search.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>

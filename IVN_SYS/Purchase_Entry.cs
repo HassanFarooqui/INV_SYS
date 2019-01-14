@@ -16,5 +16,10 @@ namespace IVN_SYS
         {
             InitializeComponent();
         }
+
+        private void Purchase_Entry_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

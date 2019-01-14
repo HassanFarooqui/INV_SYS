@@ -93,10 +93,10 @@ namespace IVN_SYS
                 product = id;
                 sqlCon.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message);
             }
             return product;
         }

@@ -36,12 +36,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TbxUserName = new System.Windows.Forms.TextBox();
-            this.TbxPassword = new System.Windows.Forms.TextBox();
-            this.BtnSave = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.TbxPassword = new System.Windows.Forms.TextBox();
+            this.TbxUserName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.userid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,20 +80,55 @@
             this.panel2.Controls.Add(this.TbxUserName);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(34, 89);
+            this.panel2.Location = new System.Drawing.Point(12, 80);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(462, 119);
             this.panel2.TabIndex = 1;
             // 
-            // label2
+            // BtnCancel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "User Name :";
+            this.BtnCancel.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCancel.ForeColor = System.Drawing.Color.White;
+            this.BtnCancel.Location = new System.Drawing.Point(337, 70);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(100, 38);
+            this.BtnCancel.TabIndex = 5;
+            this.BtnCancel.Text = "&Cancel";
+            this.BtnCancel.UseVisualStyleBackColor = false;
+            // 
+            // BtnSave
+            // 
+            this.BtnSave.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSave.ForeColor = System.Drawing.Color.White;
+            this.BtnSave.Location = new System.Drawing.Point(233, 70);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(100, 38);
+            this.BtnSave.TabIndex = 4;
+            this.BtnSave.Text = "&Save";
+            this.BtnSave.UseVisualStyleBackColor = false;
+            this.BtnSave.Click += new System.EventHandler(this.SaveUser);
+            // 
+            // TbxPassword
+            // 
+            this.TbxPassword.BackColor = System.Drawing.Color.Silver;
+            this.TbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TbxPassword.Location = new System.Drawing.Point(127, 38);
+            this.TbxPassword.Name = "TbxPassword";
+            this.TbxPassword.Size = new System.Drawing.Size(310, 26);
+            this.TbxPassword.TabIndex = 3;
+            // 
+            // TbxUserName
+            // 
+            this.TbxUserName.BackColor = System.Drawing.Color.Silver;
+            this.TbxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TbxUserName.Location = new System.Drawing.Point(127, 7);
+            this.TbxUserName.Name = "TbxUserName";
+            this.TbxUserName.Size = new System.Drawing.Size(310, 26);
+            this.TbxUserName.TabIndex = 2;
             // 
             // label3
             // 
@@ -105,48 +140,15 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Password :";
             // 
-            // TbxUserName
+            // label2
             // 
-            this.TbxUserName.BackColor = System.Drawing.Color.Silver;
-            this.TbxUserName.Location = new System.Drawing.Point(127, 7);
-            this.TbxUserName.Name = "TbxUserName";
-            this.TbxUserName.Size = new System.Drawing.Size(310, 20);
-            this.TbxUserName.TabIndex = 2;
-            // 
-            // TbxPassword
-            // 
-            this.TbxPassword.BackColor = System.Drawing.Color.Silver;
-            this.TbxPassword.Location = new System.Drawing.Point(127, 38);
-            this.TbxPassword.Name = "TbxPassword";
-            this.TbxPassword.Size = new System.Drawing.Size(310, 20);
-            this.TbxPassword.TabIndex = 3;
-            // 
-            // BtnSave
-            // 
-            this.BtnSave.BackColor = System.Drawing.Color.Lime;
-            this.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSave.ForeColor = System.Drawing.Color.White;
-            this.BtnSave.Location = new System.Drawing.Point(127, 64);
-            this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(75, 38);
-            this.BtnSave.TabIndex = 4;
-            this.BtnSave.Text = "&Save";
-            this.BtnSave.UseVisualStyleBackColor = false;
-            this.BtnSave.Click += new System.EventHandler(this.SaveUser);
-            // 
-            // BtnCancel
-            // 
-            this.BtnCancel.BackColor = System.Drawing.Color.Lime;
-            this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancel.ForeColor = System.Drawing.Color.White;
-            this.BtnCancel.Location = new System.Drawing.Point(208, 64);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(75, 38);
-            this.BtnCancel.TabIndex = 5;
-            this.BtnCancel.Text = "&Cancel";
-            this.BtnCancel.UseVisualStyleBackColor = false;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "User Name :";
             // 
             // panel3
             // 
@@ -208,15 +210,15 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
             this.userid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.userid.HeaderText = "S No";
+            this.userid.HeaderText = "SNo";
             this.userid.Name = "userid";
             this.userid.ReadOnly = true;
             this.userid.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.userid.Width = 250;
+            this.userid.Width = 120;
             // 
             // username
             // 
-            this.username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
             this.username.DefaultCellStyle = dataGridViewCellStyle3;
@@ -225,7 +227,6 @@
             this.username.ReadOnly = true;
             this.username.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.username.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.username.Width = 253;
             // 
             // Add_User
             // 
@@ -260,7 +261,7 @@
         private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userid;
         private System.Windows.Forms.DataGridViewTextBoxColumn username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userid;
     }
 }

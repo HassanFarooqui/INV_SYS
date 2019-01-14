@@ -13,3 +13,4 @@ C:\Users\Hassan Farooqui\Documents\Visual Studio 2015\Projects\IVN_SYS\IVN_SYS\o
 C:\Users\Hassan Farooqui\Documents\Visual Studio 2015\Projects\IVN_SYS\IVN_SYS\obj\Debug\IVN_SYS.Purchase_Entry.resources
 C:\Users\Hassan Farooqui\Documents\Visual Studio 2015\Projects\IVN_SYS\IVN_SYS\obj\Debug\IVN_SYS.SignIn.resources
 C:\Users\Hassan Farooqui\Documents\Visual Studio 2015\Projects\IVN_SYS\IVN_SYS\obj\Debug\IVN_SYS.Add_User.resources
+C:\Users\Hassan Farooqui\Documents\Visual Studio 2015\Projects\IVN_SYS\IVN_SYS\obj\Debug\IVN_SYS.Sale_Search.resources

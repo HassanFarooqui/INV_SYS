@@ -58,7 +58,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 69);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(522, 112);
+            this.panel1.Size = new System.Drawing.Size(522, 116);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -74,7 +74,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(131, 65);
+            this.button1.Location = new System.Drawing.Point(429, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 36);
             this.button1.TabIndex = 2;
@@ -85,10 +85,10 @@
             // Tbx_ProductName
             // 
             this.Tbx_ProductName.BackColor = System.Drawing.Color.Silver;
-            this.Tbx_ProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tbx_ProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tbx_ProductName.Location = new System.Drawing.Point(131, 22);
             this.Tbx_ProductName.Name = "Tbx_ProductName";
-            this.Tbx_ProductName.Size = new System.Drawing.Size(373, 22);
+            this.Tbx_ProductName.Size = new System.Drawing.Size(292, 26);
             this.Tbx_ProductName.TabIndex = 1;
             // 
             // label1
@@ -116,7 +116,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(179, 14);
+            this.label2.Location = new System.Drawing.Point(187, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(174, 31);
             this.label2.TabIndex = 0;
@@ -186,22 +186,21 @@
             this.name.Name = "name";
             this.name.ReadOnly = true;
             this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.name.Width = 270;
+            this.name.Width = 120;
             // 
             // shopkey
             // 
-            this.shopkey.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.shopkey.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.shopkey.HeaderText = "Product Name";
             this.shopkey.Name = "shopkey";
             this.shopkey.ReadOnly = true;
             this.shopkey.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.shopkey.Width = 250;
             // 
             // Add_Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 411);
+            this.ClientSize = new System.Drawing.Size(537, 404);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -230,8 +229,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView GdvProducts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shopkey;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shopkey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
     }
 }

@@ -159,7 +159,7 @@ namespace IVN_SYS
             }
             return party;
         }
-        private void Sale_Entry_Load(object sender, EventArgs e)
+        private void Sale_Entry_Load(object sender, EventArgs e) 
         {
             TbxTotal.Text = "0";
             id = Convert.ToString(this.GetID());
@@ -215,14 +215,13 @@ namespace IVN_SYS
             DataGridViewComboBoxCell comboBox = new DataGridViewComboBoxCell();
             comboBox.Items.AddRange(productnameArray);
             this.GdvSaleEntry.Rows[row].Cells[column] = comboBox;
+            
             this.GdvSaleEntry.Rows[row].Cells[column].Value = productnameArray[0];
             int b = GdvSaleEntry.Rows.Count;
-            if (b == 1)
+            if (b == 1) 
             {
                 GdvSaleEntry.Rows[0].Cells[0].Value = b;
             }
-
-
         }
         
         
@@ -274,6 +273,89 @@ namespace IVN_SYS
         private void Calculator(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("Calc");
+        }
+
+        private void GdvSaleEntryDeleteRow_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                rowselect = e.RowIndex;
+                if (GdvSaleEntry.Rows.Count > 1)
+                {
+                    if (e.RowIndex == GdvSaleEntry.NewRowIndex || e.RowIndex < 0)
+                        return;
+
+                    //Check if click is on specific column 
+                    if (e.ColumnIndex == GdvSaleEntry.Columns["action"].Index)
+                    {
+                        //Put some logic here, for example to remove row from your binding list.
+                        GdvSaleEntry.Rows.RemoveAt(e.RowIndex);
+                        try
+                        {
+                            double total_Amount = 0.0;
+
+
+                         //   total_Amount = Classes.CounterSale1Methods.Cell_Amount_Sum(dataGridView2);
+
+
+                         //   billAmount.Text = Math.Ceiling(total_Amount).ToString();
+                           // double received_Amount = (recievedAmount.Text != "") ? Math.Ceiling(Convert.ToDouble(recievedAmount.Text)) : 0.0;
+
+                           // refundAmount.Text = Math.Ceiling((total_Amount - received_Amount)).ToString();
+
+                        }
+                        catch
+                        {
+
+
+                        }
+                    }
+                }
+                else
+                {
+                    if (e.RowIndex == GdvSaleEntry.NewRowIndex || e.RowIndex < 0)
+                        return;
+
+                    //Check if click is on specific column 
+                    if (e.ColumnIndex == GdvSaleEntry.Columns["action"].Index)
+                    {
+                        //Put some logic here, for example to remove row from your binding list.
+
+
+                        GdvSaleEntry.Rows[0].Cells[0].Value = "";
+                        GdvSaleEntry.Rows[0].Cells[1].Value = "";
+                        GdvSaleEntry.Rows[0].Cells[2].Value = "0";
+                        GdvSaleEntry.Rows[0].Cells[3].Value = "0";
+                        GdvSaleEntry.Rows[0].Cells[4].Value = "0";
+
+
+                        try
+                        {
+                            double total_Amount = 0.0;
+
+
+                           // total_Amount = Classes.CounterSale1Methods.Cell_Amount_Sum(dataGridView2);
+
+
+                          //  billAmount.Text = Math.Ceiling(total_Amount).ToString();
+                           // double received_Amount = (recievedAmount.Text != "") ? Math.Ceiling(Convert.ToDouble(recievedAmount.Text)) : 0.0;
+
+                           // refundAmount.Text = Math.Ceiling((received_Amount - total_Amount)).ToString();
+
+                        }
+                        catch
+                        {
+
+
+                        }
+                    }
+
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

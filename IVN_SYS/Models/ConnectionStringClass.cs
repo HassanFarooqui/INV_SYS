@@ -12,7 +12,7 @@ namespace IVN_SYS.Models
     {
         public SqlConnection getDatabaseConnection()
         {
-            string mainconnection = "Data Source=DESKTOP-I3IBHRD\\SQLEXPRESS2014;Initial Catalog=Inventory_System;Integrated Security=True;Connect Timeout=15;Encrypt=False;    TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string mainconnection = "Data Source=DESKTOP-I3IBHRD\\SQLEXPRESS2014;Initial Catalog=Inventory_System;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             SqlConnection myconnection = new SqlConnection(mainconnection);
             return myconnection;
         }

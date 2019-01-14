@@ -16,5 +16,10 @@ namespace IVN_SYS
         {
             InitializeComponent();
         }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

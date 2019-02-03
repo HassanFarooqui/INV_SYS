@@ -50,14 +50,14 @@ namespace IVN_SYS
                         icolumn = GdvSaleEntry.CurrentCell.ColumnIndex;
                         irow = GdvSaleEntry.CurrentCell.RowIndex;
                         rowselect = irow;
-                        if (icolumn == GdvSaleEntry.Columns.Count - 1)
+                        if (icolumn == GdvSaleEntry.Columns.Count - 2)
                         {
 
                             if (R > 1)
                             {
-                                // var qnty = GdvSaleEntry.Rows[irow].Cells[4].Value;
-                                //if (qnty != null)
-                                //{
+                                var qnty = GdvSaleEntry.Rows[irow].Cells[4].Value.ToString();
+                                if (qnty != "0")
+                                {
                                 GdvSaleEntry.Rows.Add();
                                 //b = 0;//for add value in total
                                 this.GdvSaleEntry.Rows[R].Cells[0].Value = R+ 1;
@@ -66,18 +66,25 @@ namespace IVN_SYS
 
 
 
-                                //}
-                                //else
-                                //  return true;
+                                }
+                                else
+                                return true;
                             }
                             else
                             {
                                 if (GdvSaleEntry.CurrentCell.RowIndex == GdvSaleEntry.Rows.Count - 1)
                                 {
-                                    GdvSaleEntry.Rows.Add();
+                                    var qnty = GdvSaleEntry.Rows[irow].Cells[4].Value.ToString();
+                                    
+                                    if (qnty != "0")
+                                    {
+                                        GdvSaleEntry.Rows.Add();
                                     //b = 0;//for add value in total
                                     this.GdvSaleEntry.Rows[R].Cells[0].Value = R+1;
                                     fillComboboxOfGridView(R , 1);
+                                    }
+                                    else
+                                        return true;
                                 }
                                 else
                                 {
@@ -86,47 +93,47 @@ namespace IVN_SYS
                                 GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
                             }
                         }
-                        else
-                        {
-                            if (GdvSaleEntry.CurrentCell.ColumnIndex == 3)
-                            {
-                                if (GdvSaleEntry.CurrentCell.RowIndex == GdvSaleEntry.Rows.Count - 1)
-                                {
-                                    Int32 index = GdvSaleEntry.Rows.Count - 1; // this is count start 1,2,3,4,5,6
-                                    GdvSaleEntry.EndEdit();
-                                    var value = GdvSaleEntry.Rows[index].Cells[3].Value.ToString();
+                        //else
+                        //{
+                        //    if (GdvSaleEntry.CurrentCell.ColumnIndex == 3)
+                        //    {
+                        //        if (GdvSaleEntry.CurrentCell.RowIndex == GdvSaleEntry.Rows.Count - 1)
+                        //        {
+                        //            Int32 index = GdvSaleEntry.Rows.Count - 1; // this is count start 1,2,3,4,5,6
+                        //            GdvSaleEntry.EndEdit();
+                        //            var value = GdvSaleEntry.Rows[index].Cells[3].Value.ToString();
 
-                                    if (value != null)
-                                    {
-                                        GdvSaleEntry.Rows.Add();
-                                       // b = 0;//for add value in total
-                                        this.GdvSaleEntry.Rows[R ].Cells[0].Value = R;
-                                        fillComboboxOfGridView(R , 1);
-                                        GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
-                                    }
-                                    else
-                                    {
-                                        GdvSaleEntry.EndEdit();
-                                        GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
-                                    }
-                                }
-                                else
-                                {
-                                    GdvSaleEntry.EndEdit();
-                                    GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
-                                }
-                            }
-                            else
-                            {
-                                GdvSaleEntry.CurrentCell = GdvSaleEntry[icolumn + 1, irow];
-                            }
-                        }
+                        //            if (value != null)
+                        //            {
+                        //                GdvSaleEntry.Rows.Add();
+                        //               // b = 0;//for add value in total
+                        //                this.GdvSaleEntry.Rows[R ].Cells[0].Value = R;
+                        //                fillComboboxOfGridView(R , 1);
+                        //                GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
+                        //            }
+                        //            else
+                        //            {
+                        //                GdvSaleEntry.EndEdit();
+                        //                GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
+                        //            }
+                        //        }
+                        //        else
+                        //        {
+                        //            GdvSaleEntry.EndEdit();
+                        //            GdvSaleEntry.CurrentCell = GdvSaleEntry[1, irow + 1];
+                        //        }
+                        //    }
+                        //    else
+                        //    {
+                        //        GdvSaleEntry.CurrentCell = GdvSaleEntry[icolumn + 1, irow];
+                        //    }
+                        //}
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                   // MessageBox.Show(ex.Message);
                 }
                 rowselect = GdvSaleEntry.CurrentCell.RowIndex;
                 return true;
@@ -253,12 +260,11 @@ namespace IVN_SYS
                                     b = Math.Ceiling(Convert.ToDouble(Quantity) * Convert.ToDouble(Rate));
                                     total = total + b;
                                     TbxTotal.Text = total.ToString();
+                                  //  GdvSaleEntry.Rows.Add();
 
                                 }
                             }
-                            else {
-                                return;
-                            }
+                           
                         }
                     }
                     else

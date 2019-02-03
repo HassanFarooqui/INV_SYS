@@ -18,10 +18,10 @@ namespace IVN_SYS
         //List<string> productnameArray = new List<string>();
         string[] productnameArray;
 
-        double total;
-        double discount;
-        double expense;
-        double grandtotal;
+      double total;
+     //   double discount;
+     //   double expense;
+     //   double grandtotal;
         double b = 0;
         
 
@@ -233,14 +233,16 @@ namespace IVN_SYS
                 if (e.RowIndex > -1)
                 {
                     row = GdvSaleEntry.Rows[e.RowIndex];
-                    string valueA = row.Cells[2].Value.ToString();
-                    string valueB = row.Cells[3].Value.ToString();
+                    
+                       
+                    string Quantity = (row.Cells[2].Value != null)? row.Cells[2].Value.ToString() : "0.0";
+                    string Rate = (row.Cells[3].Value != null) ? row.Cells[3].Value.ToString() : "0.0";
                     double result;
-                    if (valueA != "" || valueB != "" || valueA != null || valueB != null)
+                    if (Quantity != "" || Rate != "" || Quantity != null || Rate != null)
                     {
-                        if (double.TryParse(valueA, out result) && double.TryParse(valueB, out result))
+                        if (double.TryParse(Quantity, out result) && double.TryParse(Rate, out result))
                         {
-                            row.Cells[4].Value = Math.Ceiling(Convert.ToDouble(valueA) * Convert.ToDouble(valueB));
+                            row.Cells[4].Value = Math.Ceiling(Convert.ToDouble(Quantity) * Convert.ToDouble(Rate));
 
 
                             //string var =  row.Cells[4].Value.ToString();
@@ -248,25 +250,30 @@ namespace IVN_SYS
                             {
                                 if (b == 0)
                                 {
-                                    b = Math.Ceiling(Convert.ToDouble(valueA) * Convert.ToDouble(valueB));
+                                    b = Math.Ceiling(Convert.ToDouble(Quantity) * Convert.ToDouble(Rate));
                                     total = total + b;
                                     TbxTotal.Text = total.ToString();
 
                                 }
                             }
+                            else {
+                                return;
+                            }
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Insert Correct value in rate and qty");
+                        MessageBox.Show("Please Enter Rate and Quantity");
                     }
-                    
+
+                }
+                else {
+                    MessageBox.Show("Please Enter Item");
                 }
             }
             catch (Exception ex)
             {
-
-               // MessageBox.Show("Insert Correct amount" + ex.Message);
+            MessageBox.Show("Insert Correct amount" + ex.Message);
             }
         }
 
@@ -289,7 +296,9 @@ namespace IVN_SYS
                     if (e.ColumnIndex == GdvSaleEntry.Columns["action"].Index)
                     {
                         //Put some logic here, for example to remove row from your binding list.
+                        this.manageGridValues(e.RowIndex);
                         GdvSaleEntry.Rows.RemoveAt(e.RowIndex);
+                       
                         try
                         {
                             double total_Amount = 0.0;
@@ -316,46 +325,58 @@ namespace IVN_SYS
                     if (e.RowIndex == GdvSaleEntry.NewRowIndex || e.RowIndex < 0)
                         return;
 
-                    //Check if click is on specific column 
-                    if (e.ColumnIndex == GdvSaleEntry.Columns["action"].Index)
+                    try
                     {
-                        //Put some logic here, for example to remove row from your binding list.
-
-
-                        GdvSaleEntry.Rows[0].Cells[0].Value = "";
-                        GdvSaleEntry.Rows[0].Cells[1].Value = "";
-                        GdvSaleEntry.Rows[0].Cells[2].Value = "0";
-                        GdvSaleEntry.Rows[0].Cells[3].Value = "0";
-                        GdvSaleEntry.Rows[0].Cells[4].Value = "0";
-
-
-                        try
+                        //Check if click is on specific column 
+                        if (e.ColumnIndex == GdvSaleEntry.Columns["action"].Index)
                         {
-                            double total_Amount = 0.0;
+                            //Put some logic here, for example to remove row from your binding list.
 
 
-                           // total_Amount = Classes.CounterSale1Methods.Cell_Amount_Sum(dataGridView2);
-
-
-                          //  billAmount.Text = Math.Ceiling(total_Amount).ToString();
-                           // double received_Amount = (recievedAmount.Text != "") ? Math.Ceiling(Convert.ToDouble(recievedAmount.Text)) : 0.0;
-
-                           // refundAmount.Text = Math.Ceiling((received_Amount - total_Amount)).ToString();
-
-                        }
-                        catch
-                        {
-
-
+                            GdvSaleEntry.Rows[0].Cells[0].Value = 1;
+                            GdvSaleEntry.Rows[0].Cells[1].Value = "";
+                            GdvSaleEntry.Rows[0].Cells[2].Value = "0";
+                            GdvSaleEntry.Rows[0].Cells[3].Value = "0";
+                            GdvSaleEntry.Rows[0].Cells[4].Value = "0";
+                           
                         }
                     }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message + "Delete 1st Row");
+                    }
+                  
 
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message + "Row on available to delete");
+            }
+        }
+
+        public void manageGridValues(int rowindex)
+        {
+            try
+            {
+                double total = Convert.ToDouble(TbxTotal.Text);
+                double rowValue = Convert.ToDouble(GdvSaleEntry.Rows[rowindex].Cells[4].Value);
+                double gtotal = total - rowValue;
+                this.total = gtotal;
+                TbxTotal.Text = gtotal.ToString();
 
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            for (int i = rowindex; i < GdvSaleEntry.Rows.Count; i++)
+            {
+                GdvSaleEntry.Rows[i].Cells[0].Value = i + 1;
+            }
+
         }
     }
 }

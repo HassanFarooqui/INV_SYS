@@ -21,5 +21,10 @@ namespace IVN_SYS
         {
 
         }
+
+        private void CbxPartyName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

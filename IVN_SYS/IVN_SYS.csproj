@@ -75,6 +75,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ConnectionStringClass.cs" />
+    <Compile Include="Models\Sale_Object.cs" />
     <Compile Include="Payment.cs">
       <SubType>Form</SubType>
     </Compile>
